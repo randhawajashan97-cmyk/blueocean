@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791432269297,
+      "tag": "0000_create_restaurant_orders_and_staff_roles",
+      "breakpoints": true
+    }
+  ]
+}

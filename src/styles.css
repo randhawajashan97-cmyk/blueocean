@@ -1,0 +1,79 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Lora", serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-surface-strong: var(--surface-strong);
+  --color-footer: var(--footer);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+}
+
+:root {
+  --background: oklch(0.985 0.007 90);
+  --foreground: oklch(0.19 0.035 232);
+  --primary: oklch(0.37 0.11 234);
+  --primary-foreground: oklch(0.99 0.005 90);
+  --secondary: oklch(0.91 0.03 196);
+  --secondary-foreground: oklch(0.25 0.065 227);
+  --muted: oklch(0.95 0.009 88);
+  --muted-foreground: oklch(0.47 0.028 231);
+  --accent: oklch(0.92 0.045 196);
+  --accent-foreground: oklch(0.29 0.075 229);
+  --highlight: oklch(0.79 0.16 75);
+  --highlight-foreground: oklch(0.2 0.04 60);
+  --whatsapp: oklch(0.63 0.17 151);
+  --whatsapp-foreground: oklch(0.99 0.005 150);
+  --surface-strong: oklch(0.955 0.017 93);
+  --footer: oklch(0.16 0.035 229);
+  --footer-foreground: oklch(0.97 0.008 90);
+  --border: oklch(0.86 0.02 220);
+  --input: oklch(0.86 0.02 220);
+  --ring: oklch(0.52 0.13 232);
+  --destructive: oklch(0.57 0.21 27);
+  --destructive-foreground: oklch(0.99 0.005 90);
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
+  button, a { -webkit-tap-highlight-color: transparent; }
+}
+
+@utility section-space { padding-block: clamp(4.5rem, 9vw, 8rem); }
+@utility section-title { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1.08; font-weight: 700; }
+@utility eyebrow { font-size: 0.75rem; line-height: 1rem; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+@utility form-control { width: 100%; border: 1px solid var(--input); border-radius: 0.375rem; background: var(--background); padding: 0.75rem 0.875rem; color: var(--foreground); outline: none; &:focus { border-color: var(--ring); box-shadow: 0 0 0 2px color-mix(in oklab, var(--ring) 20%, transparent); } &[aria-invalid="true"] { border-color: var(--destructive); } }
+@utility bg-hero-overlay { background: linear-gradient(90deg, oklch(0.12 0.025 230 / 0.94) 0%, oklch(0.12 0.025 230 / 0.73) 40%, oklch(0.12 0.025 230 / 0.12) 78%); }
+
+@media (max-width: 640px) {
+  .bg-hero-overlay { background: linear-gradient(0deg, oklch(0.12 0.025 230 / 0.94) 0%, oklch(0.12 0.025 230 / 0.62) 65%, oklch(0.12 0.025 230 / 0.25) 100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
